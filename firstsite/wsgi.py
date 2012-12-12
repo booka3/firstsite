@@ -13,7 +13,8 @@ middleware here, or combine a Django application with an application of another
 framework.
 
 """
-import os
+import os, sys
+sys.path.append('/home/zz/Documents/python/firstsite/firstsite/firstsite/')
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "firstsite.settings")
 
