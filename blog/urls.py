@@ -1,6 +1,7 @@
 from django.conf.urls.defaults import *
-from firstsite.blog.views import archive
+#from firstsite.blog.views import archive
+from blog import views
 
 urlpatterns = patterns('',
-    url(r'^$', archve),
+    url(r'^$', views.hello, name='blog'),
 )
