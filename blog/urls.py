@@ -3,5 +3,5 @@ from django.conf.urls.defaults import *
 from blog import views
 
 urlpatterns = patterns('',
-    url(r'^$', views.hello, name='blog'),
+    url(r'^$', views.archive, name='archive'),
 )

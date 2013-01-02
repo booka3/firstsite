@@ -1,17 +1,19 @@
 # Create your views here.
-#from django.template import loader, Context
-#from django.http import HttpResponse
-#from firstsite.blog.models import BlogPost
-
-#def archive(request):
-#    posts = BlogPost.objects.all()
-#    t = loader.get_template("archive.html")
-#    c = Context({ 'posts':posts })
-#    return HttpResponse(t.render(c))
+from django.template import loader, Context
 from django.http import HttpResponse
-import datetime
+from blog.models import BlogPost
 
-def hello(request):
-	now = datetime.datetime.now()
-	html = "<html><body>Now<br> %s</body></html>" %now
-	return HttpResponse(html)
+def archive(request):
+    posts = BlogPost.objects.all()
+    t = loader.get_template("archive.html")
+    c = Context({ 'posts':posts })
+    return HttpResponse(t.render(c))
+#    return HttpResponse("1")
+
+#from django.http import HttpResponse
+#import datetime
+
+#def hello(request):
+#	now = datetime.datetime.now()
+#	html = "<html><body>Now<br> %s</body></html>" %now
+#	return HttpResponse(html)
