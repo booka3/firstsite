@@ -1,11 +1,14 @@
 from django.conf.urls import patterns, include, url
 from firstsite.views import hello
+from firstsite.views import hello2
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
 	('^hello/$',hello),
+        ('^hello2/$',hello2),
+
     # Examples:
     # url(r'^$', 'firstsite.views.home', name='home'),
     # url(r'^firstsite/', include('firstsite.foo.urls')),
