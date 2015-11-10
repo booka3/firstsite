@@ -1,0 +1,25 @@
+#!/bin/sh
+
+    if (tmux has-session -t "${PWD##*/}" 2> /dev/null); then
+        echo "Session  ${PWD##*/} exists."
+    else
+            tmux new -s "${PWD##*/}" -d
+            tmux new-window -n "${PWD##*/}:1"
+            tmux new-window -n "${PWD##*/}:2"
+            tmux new-window -n "${PWD##*/}:3"
+            tmux new-window -n "${PWD##*/}:4"
+            tmux new-window -n "${PWD##*/}:5"
+            tmux new-window -n "${PWD##*/}:6"
+            tmux new-window -n "${PWD##*/}:7"
+
+            tmux send-keys -t "${PWD##*/}:0" 'htop' C-m
+            tmux send-keys -t "${PWD##*/}:1" 'mc' C-m
+            tmux send-keys -t "${PWD##*/}:2" 'vim' C-m
+            tmux send-keys -t "${PWD##*/}:3" 'source ffirstsite/bin/activate' C-m
+
+            tmux select-window -t "${PWD##*/}:3" 
+    fi
+    tmux attach-session -t "${PWD##*/}" 
+
+
+
