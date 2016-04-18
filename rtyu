@@ -15,7 +15,7 @@
             tmux send-keys -t "${PWD##*/}:0" 'htop' C-m
             tmux send-keys -t "${PWD##*/}:1" 'mc' C-m
             tmux send-keys -t "${PWD##*/}:2" 'vim' C-m
-            tmux send-keys -t "${PWD##*/}:3" 'source virt/1/bin/activate' C-m
+            tmux send-keys -t "${PWD##*/}:3" 'source virt/2/bin/activate;python manage.py runserver 0.0.0.0:8000' C-m
 
             tmux select-window -t "${PWD##*/}:3" 
     fi
