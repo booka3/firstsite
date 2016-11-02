@@ -15,7 +15,9 @@ if (tmux has-session -t "${PWD##*/}" 2> /dev/null); then
 #       -z the length of string is zero        
         if [ -z $TMUX ]; then
             echo "Starting session ${PWD##*/}"
-            tmux new -s "${PWD##*/}" -d
+            tmux new-session -s "${PWD##*/}" -P -d
+            sleep 5
+            tmux new-window -n "${PWD##*/}:0"
             tmux new-window -n "${PWD##*/}:1"
             tmux new-window -n "${PWD##*/}:2"
             tmux new-window -n "${PWD##*/}:3"
@@ -23,9 +25,12 @@ if (tmux has-session -t "${PWD##*/}" 2> /dev/null); then
             tmux new-window -n "${PWD##*/}:5"
             tmux new-window -n "${PWD##*/}:6"
             tmux new-window -n "${PWD##*/}:7"
+            
+            sleep 3
 
-            tmux send-keys -t "${PWD##*/}:0" 'htop' C-m
             tmux send-keys -t "${PWD##*/}:1" 'mc' C-m
+            tmux send-keys -t "${PWD##*/}:0" 'htop' C-m
+            # tmux send-keys -t "${PWD##*/}:1" 'mc' C-m
             tmux send-keys -t "${PWD##*/}:2" 'vim' C-m
             tmux send-keys -t "${PWD##*/}:3" 'source virt/2/bin/activate;python manage.py runserver 0.0.0.0:8000' C-m
             tmux attach-session -t "${PWD##*/}"
@@ -33,6 +38,7 @@ if (tmux has-session -t "${PWD##*/}" 2> /dev/null); then
             echo "You are in tmux session"
             echo "Create session - $DIREC_TTMM"
             tmux new -s "$DIREC_TTMM" -d
+            tmux new-window -n "$DIREC_TTMM" -t "$DIREC_TTMM:0"
             tmux new-window -n "$DIREC_TTMM" -t "$DIREC_TTMM:1"
             tmux new-window -n "$DIREC_TTMM" -t "$DIREC_TTMM:2"
             tmux new-window -n "$DIREC_TTMM" -t "$DIREC_TTMM:3"
@@ -41,6 +47,7 @@ if (tmux has-session -t "${PWD##*/}" 2> /dev/null); then
             tmux new-window -n "$DIREC_TTMM" -t "$DIREC_TTMM:6"
             tmux new-window -n "$DIREC_TTMM" -t "$DIREC_TTMM:7"
 
+            sleep 3
 
             tmux send-keys -t "$DIREC_TTMM:0" 'htop' C-m
             tmux send-keys -t "$DIREC_TTMM:1" 'mc' C-m
