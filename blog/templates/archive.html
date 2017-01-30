@@ -56,6 +56,9 @@
         $("#xz_fn").click(function(){
             alert('Button')
         });
+        $('#inputDatabaseName').on('input',function(e){
+              alert('Changed!')
+        });
     });
 </script>
 </head>
@@ -66,5 +69,9 @@ _________________________________________________________________
 <p>{{ post.timestamp }}</p>
 <p>{{ post.body }}</p>
 {% endfor %}
-<input type="button" id="xz_fn" value="xz_b"/> 
+<input type="button" id="xz_fn" value="xz_b"/>
+<br>
+<input id="inputDatabaseName" onchange="youFunction();"
+                              onkeyup="this.onchange();" onpaste="this.onchange();" oninput="this.onchange();"/>
+
 </html>
