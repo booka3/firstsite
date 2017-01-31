@@ -14,7 +14,7 @@ framework.
 
 """
 import os, sys
-sys.path.append('/home/zz/Documents/python/firstsite/firstsite/firstsite/')
+# sys.path.append('/home/zz/Documents/python/firstsite/firstsite/firstsite/')
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "firstsite.settings")
 
