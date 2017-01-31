@@ -1,13 +1,11 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Login Page</title>
-<link type="text/css"
-	href="js/css/smoothness/jquery-ui-1.8.18.custom.css" rel="stylesheet" />
-
-<script type="text/javascript" src="js/js/jquery-1.7.1.min.js"></script>
-<script type="text/javascript"
-	src="js/js/jquery-ui-1.8.18.custom.min.js"></script>
+{% load staticfiles %}
+<script type="text/javascript" 
+        src="{% static "js/jquery-1.7.1.min.js" %}"></script>
 <style>
     .errorblock {
         color: #ff0000;
@@ -52,17 +50,22 @@
     }
 </style>
 <script type="text/javascript">
-    $( document ).ready(function(){ 
-        $("#xz_fn").click(function(){
+    $(document).ready( function () { 
+        $("#xz_fn").click( function () {
             alert('Button')
         });
+
         $('#inputDatabaseName').on('input',function(e){
               alert('Changed!')
         });
+        
+        function youFunction() {
+              alert('Changed!')
+        }
     });
 </script>
 </head>
-
+<body>
 {% for post in posts %}
 _________________________________________________________________
 <h2>{{ post.title }}</h2>
@@ -73,5 +76,5 @@ _________________________________________________________________
 <br>
 <input id="inputDatabaseName" onchange="youFunction();"
                               onkeyup="this.onchange();" onpaste="this.onchange();" oninput="this.onchange();"/>
-
+</body>
 </html>
