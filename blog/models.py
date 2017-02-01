@@ -9,4 +9,7 @@ class BlogPost(models.Model):
 class BlogPostAdmin(admin.ModelAdmin):
     list_display = ('title', 'timestamp')
 
+class BlogDD(models.Model):
+    xz = models.TextField()
+
 admin.site.register(BlogPost, BlogPostAdmin)
