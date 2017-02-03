@@ -17,7 +17,7 @@ if (tmux has-session -t "${PWD##*/}" 2> /dev/null); then
             echo "Starting session ${PWD##*/}"
             tmux new-session -s "${PWD##*/}" -P -d
             sleep 5
-            tmux new-window -n "${PWD##*/}:0"
+            # tmux new-window -n "${PWD##*/}:0"
             tmux new-window -n "${PWD##*/}:1"
             tmux new-window -n "${PWD##*/}:2"
             tmux new-window -n "${PWD##*/}:3"
@@ -37,8 +37,8 @@ if (tmux has-session -t "${PWD##*/}" 2> /dev/null); then
         else
             echo "You are in tmux session"
             echo "Create session - $DIREC_TTMM"
-            tmux new -s "$DIREC_TTMM" -d
-            tmux new-window -n "$DIREC_TTMM" -t "$DIREC_TTMM:0"
+            TMUX= tmux new-session -s "$DIREC_TTMM" -d
+            # tmux new-window -n "$DIREC_TTMM" -t "$DIREC_TTMM:0"
             tmux new-window -n "$DIREC_TTMM" -t "$DIREC_TTMM:1"
             tmux new-window -n "$DIREC_TTMM" -t "$DIREC_TTMM:2"
             tmux new-window -n "$DIREC_TTMM" -t "$DIREC_TTMM:3"
