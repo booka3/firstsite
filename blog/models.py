@@ -12,4 +12,8 @@ class BlogPostAdmin(admin.ModelAdmin):
 class BlogDD(models.Model):
     xz = models.TextField()
 
+class MyModel(models.Model):
+	fn = models.CharField(max_length=255)
+	ln = models.CharField(max_length=255)
+
 admin.site.register(BlogPost, BlogPostAdmin)
