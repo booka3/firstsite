@@ -6,8 +6,8 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-	('^hello/$',hello),
-	('^hello2/$',hello2),
+#	('^hello/$',hello),
+#	('^hello2/$',hello2),
 
     # Examples:
     # url(r'^$', 'firstsite.views.home', name='home'),
@@ -21,8 +21,8 @@ urlpatterns = patterns('',
 
 	url(r'^blog/', include('blog.urls')),
 
-    url(r'^blog/$', 'testcele.cele.views.home', name='home'),
-    url(r'^blog/do_task$', 'testcele.cele.views.do_task', name='do_task'),
-    url(r'^blog/poll_state$', 'testcele.cele.views.poll_state', name='poll_state'),
+#    url(r'^blog2/$', 'blog.views.home', name='home'),
+#    url(r'^blog2/do_task$', 'testcele.cele.views.do_task', name='do_task'),
+#    url(r'^blog2/poll_state$', 'testcele.cele.views.poll_state', name='poll_state'),
 #    url(r'^admin/', include(admin.site.urls)),
 )
