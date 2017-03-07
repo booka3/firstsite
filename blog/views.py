@@ -12,7 +12,9 @@ from django.views.decorators.csrf import csrf_exempt
 from celery.result import AsyncResult
 
 from blog import tasks
-
+import sys
+# import logging
+# logger = logging.getLogger(__name__)
 def archive(request):
     posts = BlogPost.objects.all()
     t = loader.get_template("archive.html")
@@ -33,17 +35,26 @@ def archive(request):
 def home(request):
 	if 'task_id' in request.session.keys() and request.session['task_id']:
 		task_id = request.session['task_id']
+	# logger.error('Something went wrong!')
+	# logging.error('Something went wrong!')
+	print >>sys.stderr, 'Goodbye, cruel world!'
 	return render_to_response('home.html', locals(),\
 								context_instance=RequestContext(request))
 
 
 @csrf_exempt
 def do_task(request):
+	print >>sys.stderr, 'do task'
 	data = 'Fail'
+	print >>sys.stderr, '_______ data fail'
 	if request.is_ajax():
+		print >>sys.stderr, '_______ if request.is_ajax'
 		job = tasks.create_models.delay()
+		print >>sys.stderr, '_______ job'
 		request.session['task_id'] = job.id
+		print >>sys.stderr, '_______ job.id'
 		data = job.id
+		print >>sys.stderr, '_______ data_job'
 	else:
 		data = 'This is not an ajax request!'
 		

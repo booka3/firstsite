@@ -1,5 +1,8 @@
 # Django settings for firstsite project.
 
+import djcelery
+djcelery.setup_loader()
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -124,8 +127,13 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
      'blog',
+	'djcelery',
 )
 
+CELERY_IMPORTS = ("testcele.tasks",)
+CELERYBEAT_SCHEDULER = 'djcelery.schedulers.DatabaseScheduler'
+CELERY_RESULT_BACKEND = "database"
+CELERY_RESULT_DBURI = "mysql://root:C0ach!2008@localhost/celery"
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
 # the site admins on every HTTP 500 error when DEBUG=False.
